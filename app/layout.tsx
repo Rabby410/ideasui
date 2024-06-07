@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "IDEASUI",
   description: "Innovating Tomorrow, Today.",
 };
-
+export const revalidate = 30;
 export default function RootLayout({
   children,
 }: Readonly<{
