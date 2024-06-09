@@ -25,9 +25,10 @@ export const revalidate = 30;
 
 export async function generateMetadata() {
   const data: simpleBlogCard[] = await getData();
-  const title = data.length > 0 ? data[0].title : "Ideas UI";
-  const description = data.length > 0 ? data[0].smallDescription : "Innovating Tomorrow, Today. Discover the latest blog posts on various topics. Stay updated with fresh content and insightful articles.";
-  const imageUrl = data.length > 0 ? urlFor(data[0].titleImage).url() : "https://ideasui.com/ideasui.png";
+  const title = "Ideas UI";
+  const description = "Innovating Tomorrow, Today. Discover the latest blog posts on various topics. Stay updated with fresh content and insightful articles.";
+  const imageUrl = "https://ideasui.com/ideasui.png";
+  const keywords = "Blog, Articles, News, Updates, Technology, Lifestyle";
 
   return {
     title,
@@ -35,6 +36,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
+      keywords,
       url: 'https://ideasui.com',
       images: [
         {
@@ -49,6 +51,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title,
       description,
+      keywords,
       image: imageUrl,
     },
   };
