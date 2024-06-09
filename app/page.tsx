@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Head from "next/head";
 
 async function getData() {
   const query = `
@@ -62,20 +61,6 @@ export default async function Home() {
 
   return (
     <>
-      <Head>
-        <title>Ideas UI</title>
-        <meta name="description" content="Innovating Tomorrow, Today. Discover the latest blog posts on various topics. Stay updated with fresh content and insightful articles." />
-        <meta name="keywords" content="Blog, Articles, News, Updates, Technology, Lifestyle" />
-        <meta property="og:title" content="Ideas UI" />
-        <meta property="og:description" content="Innovating Tomorrow, Today. Discover the latest blog posts on various topics. Stay updated with fresh content and insightful articles." />
-        <meta property="og:image" content="https://ideasui.com/ideasui.png/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ideasui.com" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ideas UI" />
-        <meta name="twitter:description" content="Innovating Tomorrow, Today. Discover the latest blog posts on various topics. Stay updated with fresh content and insightful articles." />
-        <meta name="twitter:image" content="https://ideasui.com/ideasui.png/" />
-      </Head>
       <div className="container mx-auto pb-20">
         {data.length > 0 && (
           <>

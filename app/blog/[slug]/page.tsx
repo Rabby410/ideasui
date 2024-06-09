@@ -2,7 +2,6 @@ import { client, urlFor } from "@/app/lib/sanity";
 import { fullBlog } from "@/lib/interface";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
-import Head from "next/head";
 
 export const revalidate = 30;
 
@@ -60,20 +59,6 @@ export default async function BlogArticle({ params }: { params: { slug: string }
 
     return (
         <>
-            <Head>
-                <title>{pageTitle}</title>
-                <meta name="description" content={pageDescription} />
-                <meta name="keywords" content="Blog, Shahadath, IdeasUi, Technology, Articles" />
-                <meta property="og:title" content={pageTitle} />
-                <meta property="og:description" content={pageDescription} />
-                <meta property="og:image" content={urlFor(data.titleImage).url()} />
-                <meta property="og:type" content="article" />
-                <meta property="og:url" content={`https://ideasui.com/blog/${data.currentSlug}`} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={pageTitle} />
-                <meta name="twitter:description" content={pageDescription} />
-                <meta name="twitter:image" content={urlFor(data.titleImage).url()} />
-            </Head>
             <div className="container mx-auto my-8">
                 <header>
                     <h1 className="block text-base text-center text-primary font-semibold tracking-wide uppercase flex justify-center items-center">
