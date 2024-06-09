@@ -23,6 +23,37 @@ async function getData() {
 
 export const revalidate = 30;
 
+export async function generateMetadata() {
+  const data: simpleBlogCard[] = await getData();
+  const title = data.length > 0 ? data[0].title : "Ideas UI";
+  const description = data.length > 0 ? data[0].smallDescription : "Innovating Tomorrow, Today. Discover the latest blog posts on various topics. Stay updated with fresh content and insightful articles.";
+  const imageUrl = data.length > 0 ? urlFor(data[0].titleImage).url() : "https://ideasui.com/ideasui.png";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: 'https://ideasui.com',
+      images: [
+        {
+          url: imageUrl,
+          width: 800,
+          height: 600,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      image: imageUrl,
+    },
+  };
+}
+
 export default async function Home() {
   const data: simpleBlogCard[] = await getData();
 
